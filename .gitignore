@@ -1,6 +1,6 @@
 node_modules
-client/node_modules
-client/dist
+combined.log
+
 
 # local env files
 .env.local

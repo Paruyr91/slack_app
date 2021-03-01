@@ -6,10 +6,41 @@ let hashNumber= Number(process.env.PASSWORD_HASH_NUMBER)
 let salt= hashNumber?hashNumber:10
 
 const User = sequelize.define("users", {
-    // name: {
-    //     type: DataTypes.STRING,
-    //     allowNull: true,
-    // },
+    fullname: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        validate: {
+            isAlphanumeric: true,
+            len: [0,80]
+        }
+    },
+    displayname: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        validate: {
+            isAlphanumeric: true,
+            len: [0,80]
+        }
+    },
+    nth:{
+        type:DataTypes.INTEGER,
+        allowNull:true,
+        defaultValue:0
+    },
+    whatIdo: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        validate: {
+            len: [0,250]
+        }
+    },
+    phonenumber: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        validate: {
+            len: [0,98]
+        }
+    },        
     email: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -41,7 +72,6 @@ const User = sequelize.define("users", {
 });
 
 User.beforeCreate(async (user) => {
-    console.log(hashNumber)
     user.password = await bcrypt.hashSync(user.password, salt);
 });
 

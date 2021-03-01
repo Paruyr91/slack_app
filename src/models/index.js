@@ -1,12 +1,10 @@
 const Sequelize = require('sequelize')
 const winston=require('winston')
 
-
-
-let PGHOST = process.env.PGHOST
-let PGUSER = process.env.PGUSER
-let PGDATABASE = process.env.PGDATABASE
-let PGPASSWORD = process.env.PGPASSWORD
+const PGHOST = process.env.PGHOST
+const PGUSER = process.env.PGUSER
+const PGDATABASE = process.env.PGDATABASE
+const PGPASSWORD = process.env.PGPASSWORD
 
 const logger = winston.createLogger({
   level: 'debug',
