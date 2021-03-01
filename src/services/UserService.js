@@ -1,5 +1,4 @@
-import DB from '../models/DB_associations.js'
-
+const DB=require('../models/DB_associations')
 
 class UserService {
     
@@ -18,4 +17,4 @@ class UserService {
 
 }
 
-export default new UserService
+module.exports= new UserService

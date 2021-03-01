@@ -1,14 +1,13 @@
-import express from 'express';
-import bodyParser from 'body-parser'
-import  dotenv from "dotenv";
-import router from './routers/apirouter.js'
 
+const express= require('express')
+const  bodyParser=require("body-parser")
+require('dotenv').config()
+const router =require('./routers/apirouter')
 const app = express();
 const PORT=process.env.PORT || 8080
 
-dotenv.config();
 
-
+ 
 
 app.use(express.static('src/public'))
 app.use(bodyParser.urlencoded({
@@ -22,7 +21,7 @@ app.use(express.json());
 
 
 
-app.use(router)
+// app.use(router)
 
 
 app.listen(PORT, ()=>{

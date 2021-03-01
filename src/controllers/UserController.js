@@ -1,4 +1,5 @@
-import UserService from '../services/UserService.js'
+const UserService=require('../services/UserService')
+
 
 class UserController {
     constructor() {
@@ -21,4 +22,4 @@ class UserController {
 
 }
 
-export default new UserController
+module.exports= new UserController

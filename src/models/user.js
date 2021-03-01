@@ -1,7 +1,7 @@
+const { Sequelize, Op, Model, DataTypes} = require('sequelize');
+const sequelize = require('./index')
+const bcrypt=require('bcrypt');
 
-import DataTypes from "sequelize";
-import bcrypt from 'bcrypt'
-import sequelize from './index.js'
 let hashNumber= Number(process.env.PASSWORD_HASH_NUMBER)
 let salt= hashNumber?hashNumber:10
 
@@ -51,4 +51,6 @@ User.beforeUpdate(async (user) => {
     }
 });
 
-export default User
+
+module.exports=User
+ 

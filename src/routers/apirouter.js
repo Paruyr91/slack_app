@@ -1,14 +1,13 @@
-import  Router from 'express'
-import checktoken from '../middlewares/checktoken.js'
-import UserController from '../controllers/UserController.js'
+const express = require('express')
+const router= express.Router()
+const UserController=require('../controllers/UserController')
+const checktoken=require('../middlewares/checktoken')
 
-const router = Router()
-
+ 
 
 
 router.use(checktoken)
 
 router.post('/signup', UserController.signUp)
  
-
-export default router      
+module.exports=router   

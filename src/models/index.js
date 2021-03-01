@@ -1,8 +1,6 @@
-import Sequelize  from "sequelize";
-import  dotenv from "dotenv";
-import  winston  from 'winston'
+const Sequelize = require('sequelize')
+const winston=require('winston')
 
-dotenv.config();
 
 
 let PGHOST = process.env.PGHOST
@@ -29,7 +27,7 @@ const sequelize = new Sequelize(`${PGDATABASE}`, `${PGUSER}`, `${PGPASSWORD}`, {
 sequelize.sync({ alter: true })
 
 
-export default sequelize
+module.exports = sequelize
 
 
 

@@ -1,9 +1,8 @@
-import User from "./user.js"
-
+const User= require('./user')
 
 
 const DB = {
     User
 }
 
-export default DB
+module.exports = DB

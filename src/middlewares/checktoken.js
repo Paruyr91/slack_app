@@ -1,9 +1,9 @@
 
-import jwt from 'jsonwebtoken'
+const jwt=require('jsonwebtoken')
 const secret =process.env.SECRET_TOKEN_KEY
 
 
-const checktoken = function (req,res,next){
+module.exports=function checktoken(req,res,next){
     if(req.path==='/signin' || req.path==='/signup'){
         next()
     }else if (req.headers.authorization) {
@@ -25,6 +25,3 @@ const checktoken = function (req,res,next){
         })
     } 
 }
-
-
-export default checktoken
