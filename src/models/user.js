@@ -97,7 +97,19 @@ User.beforeUpdate(async (user) => {
     if (user.dataValues.password !== user._previousDataValues.password) {
         user.password = await bcrypt.hashSync(user.password, salt);
     }
-});
+
+   let users=await User.findAll({
+        where:{  displayname:user.dataValues.displayname  }
+    })
+   
+    
+        users=users.filter(a=>a.id!==user.id)
+        users.sort((a,b)=>b.nth-a.nth)
+        if(users[0]){
+            user.nth=users[0].nth+1
+        }
+   
+});  
 
 
 module.exports = User
