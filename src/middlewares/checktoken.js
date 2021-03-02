@@ -11,7 +11,6 @@ module.exports = async function checktoken(req, res, next) {
             let [tokenname, token] = req.headers.authorization.split(' ')
             if (tokenname !== "Bearer") throw "Token is absent"
             let decoded = jwt.verify(token, secret)
-
             let user = await DB.User.findOne({
                 where: { id: decoded.id }
             })
